@@ -1,13 +1,13 @@
-#lang r5rs
+;;#lang r5rs
 
 (define atom?
   (lambda (x)
     (and (not (pair? x))
          (not (null? x)))))
 
-(define l (list "ad" "sab" "loo"))
+;;(define l (list "ad" "sab" "loo"))
 
-(atom? l)
+;;(atom? l)
 
 ;; p. 79
 
@@ -28,10 +28,10 @@
 
 ;; p. 81
 
-(define l1 (list (("coffee") "cup" (("tea") "cup") ("and" ("hick")) "cup")))
+(define la (list ( list ( list "coffee") "cup" (list ( list "tea") "cup") (list "and" (list "hick")) "cup")))
 
 (define rember*
-  (lambda a l
+  (lambda (a l)
     (cond (null? l)('())
     ((atom? (car l))
      (cond
