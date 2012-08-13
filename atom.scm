@@ -43,6 +43,25 @@
     (else (cons (rember* a (car l))
                 (rember* a (cdr l)))))))
      
-(rember* "cup" l)                          
+;;(rember* "cup" l)                          
+
+;; p. 85
+
+(define add1
+  (lambda (n)
+    (+ n 1)))
+
+(define occur*
+  (lambda (a l)
+    (cond
+      ((null? l) 0)
+      ((atom? (car l))
+       (cond
+         ((eq? (car l) a)
+          (add1 (occur* a (cdr l))))
+         (else (occur* a (cdr l)))))
+      (else (+ (occur* a (car l))
+               (occur* a (cdr l)))))))
+                 
   
           
