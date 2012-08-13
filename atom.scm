@@ -28,20 +28,21 @@
 
 ;; p. 81
 
-(define la (list ( list ( list "coffee") "cup" (list ( list "tea") "cup") (list "and" (list "hick")) "cup")))
+(define l (list ( list ( list "coffee") "cup" (list ( list "tea") "cup") (list "and" (list "hick")) "cup")))
 
 (define rember*
   (lambda (a l)
-    (cond (null? l)('())
+    (cond
+    ((null? l)(quote()))
     ((atom? (car l))
      (cond
        ((eq? (car l) a)
         (rember* a (cdr l)))
        (else (cons (car l)
-                   (rember* a (cdr ))))))
+                   (rember* a (cdr l))))))
     (else (cons (rember* a (car l))
                 (rember* a (cdr l)))))))
      
-                          
+(rember* "cup" l)                          
   
           
