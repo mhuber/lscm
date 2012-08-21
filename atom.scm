@@ -82,3 +82,24 @@
 
 ;; (subst* "glass" "cup" l)
 
+;; p. 86
+
+(define insertl*
+  (lambda (new old l)
+    (cond
+      ((null? l) (quote ()))
+      ((atom? (car l))
+       (cond
+         ((eq? (car l) old)
+          (cons new
+                (cons old
+                      (insertl* new old (cdr l)))))
+         (else
+          (cons (car l)
+                (insertl* new old (cdr l))))))
+       (else (cons (insertl* new old (car l))
+                   (insertl* new old (cdr l)))))))
+
+;; (insertl* "full" "cup" l)
+                 
+
