@@ -141,8 +141,7 @@
   (lambda (l1 l2)
     (cond
       ((and (null? l1) (null? l2)) #t)
-      ((and (null? l1) (atom? (car l2))) #f)
-      ((null? l1) #f)
+      ((or (null? l1) (null? l2)) #f)
       ((and (atom? (car l1)) (null? l2)) #f)
       ((and (atom? (car l1)) (atom? (car l2)))
        (and (equan? (car l1) (car l2))
@@ -157,9 +156,9 @@
 
 ; sample data
 
-(define l1 (list 'a 2 (list 3 'b)))
+(define l1 (list 'a 2 (list 3 'b '())))
 
-(define l2 (list 'a 2 (list 3 'b)))
+(define l2 (list 'a 2 (list 3 'b '())))
               
       
       
