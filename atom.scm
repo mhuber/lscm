@@ -142,15 +142,8 @@
     (cond
       ((and (null? l1) (null? l2)) #t)
       ((or (null? l1) (null? l2)) #f)
-      ((and (atom? (car l1)) (null? l2)) #f)
-      ((and (atom? (car l1)) (atom? (car l2)))
-       (and (equan? (car l1) (car l2))
-            (eqlist? (cdr l1) (cdr l2))))
-      ((atom? (car l1)) #f)
-      ((null? l2) #f)
-      ((atom? (car l2)) #f)
       (else
-       (and (eqlist? (car l1) (car l2))
+       (and (equal? (car l1) (car l2))
             (eqlist? (cdr l1) (cdr l2)))))))
     
 ; euqal? p. 92
@@ -163,12 +156,10 @@
       ((or (atom? s1) (atom? s2)) #f)
       (else (eqlist? s1 s2)))))
 
-
 ; sample data
 
 (define l1 (list 'a 2 (list 3 'b '())))
-
 (define l2 (list 'a 2 (list 3 'b '())))
-              
+            
       
       
