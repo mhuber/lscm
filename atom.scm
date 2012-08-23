@@ -134,5 +134,26 @@
       ((or (number? a1)(number? a2))
        #f)
       (else (eq? a1 a2)))))
+
+; eqlist?
+
+(define eqlist?
+  (lambda (l1 l2)
+    (cond
+      ((null? l1)
+       (null? l2))
+      ((atom? (car l1))
+       (equan? (car l1) (car l2)))
+      (else
+        (and 
+         (eqlist? (car l1) (car l2))
+         (eqlist? (cdr l1) (cdr l2)))))))
+
+; sample data
+
+(define l1 (list 1 2 3))
+
+(define l2 (list 1 2 3))
+              
       
       
