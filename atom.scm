@@ -153,6 +153,17 @@
        (and (eqlist? (car l1) (car l2))
             (eqlist? (cdr l1) (cdr l2)))))))
     
+; euqal? p. 92
+
+(define equal?
+  (lambda (s1 s2)
+    (cond 
+      ((and (atom? s1) (atom? s2))
+       (equan? s1 s2))
+      ((atom? s1) #f)
+      ((atom? s2) #f)
+      (else (eqlist? s1 s2)))))
+
 
 ; sample data
 
