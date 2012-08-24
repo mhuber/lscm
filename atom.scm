@@ -179,12 +179,10 @@
   (lambda (lat)
     (cond
       ((null? lat) #t)
-      (else
-       (cond
-         ((member? (car lat) (cdr lat)) #f)
-       (else (set? (cdr lat))))))))
+      ((member? (car lat) (cdr lat)) #f)
+      (else (set? (cdr lat))))))
 
 ; sample data
-(define lat2 (list 'apple 'plum 'pear 'peach 'apple))
+(define lat2 (list 'apple 'plum 'pear 'peach 'pear))
 
 ;(set? lat2)
