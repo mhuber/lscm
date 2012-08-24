@@ -182,7 +182,7 @@
       (else
        (cond
          ((member? (car lat) (cdr lat)) #f)
-       (else (set? (cdr l))))))))
+       (else (set? (cdr lat))))))))
 
 ; sample data
 (define lat2 (list 'apple 'plum 'pear 'peach 'apple))
