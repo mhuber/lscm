@@ -172,7 +172,7 @@
   (lambda (a lat)
     (cond
       ((null? lat) #f)
-      (else (or (eq? (car lat) a)
+      (else (or (equal? (car lat) a)
                 (member? a (cdr lat)))))))
 
 (define set?
@@ -184,5 +184,6 @@
 
 ; sample data
 (define lat2 (list 'apple 'plum 'pear 'peach 'pear))
+(define lat3 (list 'apple 3 'pear 4 3 9))
 
 ;(set? lat2)
