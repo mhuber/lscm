@@ -201,3 +201,24 @@
 
 ; sample dat
 (define lat4 (list 'apple 'peach 'pear 'peach 'plum 'apple 'lemon 'peach))
+
+; helper
+
+(define multirember
+  (lambda (a lat)
+    (cond
+      ((null? lat) (quote()))
+      (else
+       (cond
+         ((equal? (car lat) a)
+          (multirember a (cdr lat)))
+         (else (cons (car lat)
+                     (multirember a (cdr lat)))))))))
+
+(define makeset2
+ (lambda (lat)
+   (cond
+     ((null? lat) (quote()))
+     (else
+     (cons (car lat)
+           (multirember (car lat)(makeset2 (cdr lat))))))))
