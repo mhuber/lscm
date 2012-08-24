@@ -184,7 +184,7 @@
 
 ; sample data
 (define lat2 (list 'apple 'plum 'pear 'peach 'pear))
-(define lat3 (list 'apple 3 'pear 4 3 9))
+(define lat3 (list 'apple 3 'pear 4 3 9 'pear 'pear))
 
 ;(set? lat2)
 
