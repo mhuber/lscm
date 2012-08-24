@@ -160,7 +160,7 @@
 
 (define l1 (list 'a 2 (list 3 'b '())))
 (define l2 (list 'a 2 (list 3 'b '())))
-            
+
 ; (eqlist? l1 l2)
 
 
@@ -188,4 +188,3 @@
 (define lat2 (list 'apple 'plum 'pear 'peach 'apple))
 
 ;(set? lat2)
-
