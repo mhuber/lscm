@@ -187,3 +187,17 @@
 (define lat3 (list 'apple 3 'pear 4 3 9))
 
 ;(set? lat2)
+
+;; p. 112
+
+(define makeset
+ (lambda (lat)
+   (cond
+     ((null? lat) (quote ()))
+     ((member? (car lat) (cdr lat))
+      (makeset (cdr lat)))
+     (else
+      (cons (car lat) (makeset (cdr lat)))))))
+
+; sample dat
+(define lat4 (list 'apple 'peach 'pear 'peach 'plum 'apple 'lemon 'peach))
