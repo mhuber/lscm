@@ -146,7 +146,7 @@
        (and (equal? (car l1) (car l2))
             (eqlist? (cdr l1) (cdr l2)))))))
     
-; euqal? p. 92
+; equal? p. 92
 
 (define equal?
   (lambda (s1 s2)
@@ -161,5 +161,31 @@
 (define l1 (list 'a 2 (list 3 'b '())))
 (define l2 (list 'a 2 (list 3 'b '())))
             
-      
-      
+; (eqlist? l1 l2)
+
+
+;; 7. Friends and Relations p. 111
+
+; helper
+
+(define member?
+  (lambda (a lat)
+    (cond
+      ((null? lat) #f)
+      (else (or (eq? (car lat) a)
+                (member? a (cdr lat)))))))
+
+(define set?
+  (lambda (lat)
+    (cond
+      ((null? lat) #t)
+      (else
+       (cond
+         ((member? (car lat) (cdr lat)) #f)
+       (else (set? (cdr l))))))))
+
+; sample data
+(define lat2 (list 'apple 'plum 'pear 'peach 'apple))
+
+;(set? lat2)
+
