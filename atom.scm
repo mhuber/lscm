@@ -222,3 +222,24 @@
      (else
      (cons (car lat)
            (multirember (car lat)(makeset2 (cdr lat))))))))
+
+;; p. 113
+
+; sample data
+(define set1 (list 5 'chicken 'wings))
+(define set2 (list 5 'hamburgers 2 'pieces 'fried 'chicken 'and 'light 'duckling 'wings))
+
+(define subset?
+  (lambda (set1 set2)
+    (cond 
+      ((null? set1) #t)
+      (else
+       (cond
+         ((and (member? (car set1) set2)
+            (subset? (cdr set1) set2)))
+         (else #f))))))
+      
+
+
+
+
