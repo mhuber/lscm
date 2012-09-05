@@ -239,7 +239,26 @@
             (subset? (cdr set1) set2)))
          (else #f))))))
       
+;; p. 132
 
+(define insert-g
+  (lambda (seq)
+    (lambda (new old l)
+      (cond
+        ((null? l) (quote ()))
+        ((eq? (car l) old)
+         (seq new old (cdr l)))
+        (else (cons (car l)
+                    ((insert-g seq) new old (cdr l))))))))
+;; p. 133
 
+(define yyy
+  (lambda (a l)
+    ((insert-g segrem) #f a l))) ;; #f damit ersatzlos gelöscht wird
 
+(define segrem
+  (lambda (new old l)
+    l))
+
+(yyy 'pear lat2)
 
