@@ -239,7 +239,49 @@
             (subset? (cdr set1) set2)))
          (else #f))))))
       
+;; p. 119
+
+(define first
+  (lambda (p)
+    (cond
+      (else (car p)))))
+
+(define second
+  (lambda (p)
+    (cond
+      (else (car (cdr p))))))
+
+(define build
+  (lambda (s1 s2)
+    (cond
+      (else (cons s1
+                  (cons s2 (quote ())))))))
 
 
+;; p. 175
 
+(define new-entry build)
 
+;; p. 176
+
+(define lookup-in-entry
+  (lambda (name entry entry-f)
+    (lookup-in-entry-help name
+                          (first entry)
+                          (second entry)
+                          entry-f)))
+
+(define lookup-in-entry-help
+  (lambda (name names values entry-f)
+    (cond
+      ((null? names) (entry-f name))
+      ((eq? name (car names)) (car values))
+      (else (lookup-in-entry-help name
+                                  (cdr names)
+                                  (cdr values)
+                                  (entry-f))))))
+
+;; sample data
+
+(define enny (list (list 1 2) (list 2 3)))
+  
